@@ -1,0 +1,7 @@
+# Normalziation data #
+#1 Data for normalize input data #
+Xdata_avg:	0.49683841,  0.10590115,  0.0077667, -0.11540747,  0.0013331
+Xdata_min:	-0.1482,  -0.1282,   0.00085, -0.3858,  -0.0537
+Xdata_max:	1.4069, 0.3676, 0.0508, 0.0027, 0.0525
+Xdata_s:	5
+$

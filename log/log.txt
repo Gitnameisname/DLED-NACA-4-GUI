@@ -1,0 +1,2725 @@
+Created on 2019-6-15 18:1:12
+Deep Learning Engineering Design: CST Airfoil
+Cheol-Kyun Choi
+====================================================================================================
+# input.txt
+#
+#0 Notice                                  #
+#  All data should be distinguished by tab #
+#  #is for the information of this file    #
+#  For example, To set Max iteration to 2  #
+#  Write Max loop:(\tab)2                  #
+$
+
+#1 Training info #
+Start_loop:	20
+Max_loop:	20
+Max_epoach:	200000
+mini_batch_size:	5000
+Initial_DB:	0
+re_Analysis:	1
+$
+
+#2 Hyperparmeter of ANN #
+No_Hidden_Layer:	5
+No_Neuron:	300
+
+No_input:	5
+No_output:	3
+
+Learning_rate:	0.01
+Activation:		ReLU
+Float_Precision:	FP32
+$
+#input.txt end
+====================================================================================================
+
+NACA4_UI_v2_65:531 - Import time: 0.0000 mili sec, 0.0000 sec
+DLED_NACA4_ver0924:164 - Activation function: ReLU
+DLED_NACA4_ver0924:263 - [node {
+  name: "LayerNorm_4/beta"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_4/beta"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/beta/read"
+  op: "Identity"
+  input: "LayerNorm_4/beta"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_4/beta"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/beta"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_3/beta"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/beta/read"
+  op: "Identity"
+  input: "LayerNorm_3/beta"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_3/beta"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/beta"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_2/beta"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/beta/read"
+  op: "Identity"
+  input: "LayerNorm_2/beta"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_2/beta"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/beta"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_1/beta"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/beta/read"
+  op: "Identity"
+  input: "LayerNorm_1/beta"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_1/beta"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm/beta"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm/beta"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm/beta/read"
+  op: "Identity"
+  input: "LayerNorm/beta"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm/beta"
+      }
+    }
+  }
+}
+node {
+  name: "_arg_x_input_0_0/_45"
+  op: "_Recv"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "client_terminated"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "recv_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:GPU:0"
+    }
+  }
+  attr {
+    key: "send_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:CPU:0"
+    }
+  }
+  attr {
+    key: "send_device_incarnation"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "tensor_name"
+    value {
+      s: "edge_174__arg_x_input_0_0"
+    }
+  }
+  attr {
+    key: "tensor_type"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Weight_1"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_1"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 5
+        }
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Weight_1/read"
+  op: "Identity"
+  input: "Weight_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_1"
+      }
+    }
+  }
+}
+node {
+  name: "MatMul"
+  op: "MatMul"
+  input: "_arg_x_input_0_0/_45"
+  input: "Weight_1/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "Bias_1"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_1"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Bias_1/read"
+  op: "Identity"
+  input: "Bias_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_1"
+      }
+    }
+  }
+}
+node {
+  name: "Add"
+  op: "Add"
+  input: "MatMul"
+  input: "Bias_1/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/moments/mean/reduction_indices"
+  op: "Const"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_INT32
+        tensor_shape {
+          dim {
+            size: 1
+          }
+        }
+        int_val: 1
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm/moments/mean"
+  op: "Mean"
+  input: "Add"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm/moments/SquaredDifference"
+  op: "SquaredDifference"
+  input: "Add"
+  input: "LayerNorm/moments/mean"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/moments/variance"
+  op: "Mean"
+  input: "LayerNorm/moments/SquaredDifference"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/add/y"
+  op: "Const"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "value"
+    value {
+      tensor {
+        dtype: DT_FLOAT
+        tensor_shape {
+        }
+        float_val: 9.999999960041972e-13
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/add"
+  op: "Add"
+  input: "LayerNorm/moments/variance"
+  input: "LayerNorm/batchnorm/add/y"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "LayerNorm/batchnorm/add"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/gamma"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm/gamma"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm/gamma/read"
+  op: "Identity"
+  input: "LayerNorm/gamma"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/mul"
+  op: "Mul"
+  input: "LayerNorm/batchnorm/Rsqrt"
+  input: "LayerNorm/gamma/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/mul_1"
+  op: "Mul"
+  input: "Add"
+  input: "LayerNorm/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/mul_2"
+  op: "Mul"
+  input: "LayerNorm/moments/mean"
+  input: "LayerNorm/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/sub"
+  op: "Sub"
+  input: "LayerNorm/beta/read"
+  input: "LayerNorm/batchnorm/mul_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm/batchnorm/add_1"
+  op: "Add"
+  input: "LayerNorm/batchnorm/mul_1"
+  input: "LayerNorm/batchnorm/sub"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu"
+  op: "Relu"
+  input: "LayerNorm/batchnorm/add_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Weight_2"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_2"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Weight_2/read"
+  op: "Identity"
+  input: "Weight_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_2"
+      }
+    }
+  }
+}
+node {
+  name: "MatMul_1"
+  op: "MatMul"
+  input: "Relu"
+  input: "Weight_2/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "Bias_2"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_2"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Bias_2/read"
+  op: "Identity"
+  input: "Bias_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_2"
+      }
+    }
+  }
+}
+node {
+  name: "Add_1"
+  op: "Add"
+  input: "MatMul_1"
+  input: "Bias_2/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/moments/mean"
+  op: "Mean"
+  input: "Add_1"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/moments/SquaredDifference"
+  op: "SquaredDifference"
+  input: "Add_1"
+  input: "LayerNorm_1/moments/mean"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/moments/variance"
+  op: "Mean"
+  input: "LayerNorm_1/moments/SquaredDifference"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/add"
+  op: "Add"
+  input: "LayerNorm_1/moments/variance"
+  input: "LayerNorm/batchnorm/add/y"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "LayerNorm_1/batchnorm/add"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/gamma"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_1/gamma"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/gamma/read"
+  op: "Identity"
+  input: "LayerNorm_1/gamma"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_1/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/mul"
+  op: "Mul"
+  input: "LayerNorm_1/batchnorm/Rsqrt"
+  input: "LayerNorm_1/gamma/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/mul_1"
+  op: "Mul"
+  input: "Add_1"
+  input: "LayerNorm_1/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/mul_2"
+  op: "Mul"
+  input: "LayerNorm_1/moments/mean"
+  input: "LayerNorm_1/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/sub"
+  op: "Sub"
+  input: "LayerNorm_1/beta/read"
+  input: "LayerNorm_1/batchnorm/mul_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_1/batchnorm/add_1"
+  op: "Add"
+  input: "LayerNorm_1/batchnorm/mul_1"
+  input: "LayerNorm_1/batchnorm/sub"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu_1"
+  op: "Relu"
+  input: "LayerNorm_1/batchnorm/add_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Weight_3"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_3"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Weight_3/read"
+  op: "Identity"
+  input: "Weight_3"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_3"
+      }
+    }
+  }
+}
+node {
+  name: "MatMul_2"
+  op: "MatMul"
+  input: "Relu_1"
+  input: "Weight_3/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "Bias_3"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_3"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Bias_3/read"
+  op: "Identity"
+  input: "Bias_3"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_3"
+      }
+    }
+  }
+}
+node {
+  name: "Add_2"
+  op: "Add"
+  input: "MatMul_2"
+  input: "Bias_3/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/moments/mean"
+  op: "Mean"
+  input: "Add_2"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/moments/SquaredDifference"
+  op: "SquaredDifference"
+  input: "Add_2"
+  input: "LayerNorm_2/moments/mean"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/moments/variance"
+  op: "Mean"
+  input: "LayerNorm_2/moments/SquaredDifference"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/add"
+  op: "Add"
+  input: "LayerNorm_2/moments/variance"
+  input: "LayerNorm/batchnorm/add/y"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "LayerNorm_2/batchnorm/add"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Weight_6"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_6"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+        dim {
+          size: 3
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Weight_6/read"
+  op: "Identity"
+  input: "Weight_6"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_6"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/gamma"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_2/gamma"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/gamma/read"
+  op: "Identity"
+  input: "LayerNorm_2/gamma"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_2/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/mul"
+  op: "Mul"
+  input: "LayerNorm_2/batchnorm/Rsqrt"
+  input: "LayerNorm_2/gamma/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/mul_1"
+  op: "Mul"
+  input: "Add_2"
+  input: "LayerNorm_2/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/mul_2"
+  op: "Mul"
+  input: "LayerNorm_2/moments/mean"
+  input: "LayerNorm_2/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/sub"
+  op: "Sub"
+  input: "LayerNorm_2/beta/read"
+  input: "LayerNorm_2/batchnorm/mul_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_2/batchnorm/add_1"
+  op: "Add"
+  input: "LayerNorm_2/batchnorm/mul_1"
+  input: "LayerNorm_2/batchnorm/sub"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu_2"
+  op: "Relu"
+  input: "LayerNorm_2/batchnorm/add_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Weight_4"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_4"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Weight_4/read"
+  op: "Identity"
+  input: "Weight_4"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_4"
+      }
+    }
+  }
+}
+node {
+  name: "MatMul_3"
+  op: "MatMul"
+  input: "Relu_2"
+  input: "Weight_4/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "Bias_4"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_4"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Bias_4/read"
+  op: "Identity"
+  input: "Bias_4"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_4"
+      }
+    }
+  }
+}
+node {
+  name: "Add_3"
+  op: "Add"
+  input: "MatMul_3"
+  input: "Bias_4/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/moments/mean"
+  op: "Mean"
+  input: "Add_3"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/moments/SquaredDifference"
+  op: "SquaredDifference"
+  input: "Add_3"
+  input: "LayerNorm_3/moments/mean"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/moments/variance"
+  op: "Mean"
+  input: "LayerNorm_3/moments/SquaredDifference"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/add"
+  op: "Add"
+  input: "LayerNorm_3/moments/variance"
+  input: "LayerNorm/batchnorm/add/y"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "LayerNorm_3/batchnorm/add"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Bias_6"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_6"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 3
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Bias_6/read"
+  op: "Identity"
+  input: "Bias_6"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_6"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/gamma"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_3/gamma"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/gamma/read"
+  op: "Identity"
+  input: "LayerNorm_3/gamma"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_3/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/mul"
+  op: "Mul"
+  input: "LayerNorm_3/batchnorm/Rsqrt"
+  input: "LayerNorm_3/gamma/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/mul_1"
+  op: "Mul"
+  input: "Add_3"
+  input: "LayerNorm_3/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/mul_2"
+  op: "Mul"
+  input: "LayerNorm_3/moments/mean"
+  input: "LayerNorm_3/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/sub"
+  op: "Sub"
+  input: "LayerNorm_3/beta/read"
+  input: "LayerNorm_3/batchnorm/mul_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_3/batchnorm/add_1"
+  op: "Add"
+  input: "LayerNorm_3/batchnorm/mul_1"
+  input: "LayerNorm_3/batchnorm/sub"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu_3"
+  op: "Relu"
+  input: "LayerNorm_3/batchnorm/add_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Weight_5"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_5"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Weight_5/read"
+  op: "Identity"
+  input: "Weight_5"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Weight_5"
+      }
+    }
+  }
+}
+node {
+  name: "MatMul_4"
+  op: "MatMul"
+  input: "Relu_3"
+  input: "Weight_5/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "Bias_5"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_5"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "Bias_5/read"
+  op: "Identity"
+  input: "Bias_5"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@Bias_5"
+      }
+    }
+  }
+}
+node {
+  name: "Add_4"
+  op: "Add"
+  input: "MatMul_4"
+  input: "Bias_5/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/moments/mean"
+  op: "Mean"
+  input: "Add_4"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/moments/SquaredDifference"
+  op: "SquaredDifference"
+  input: "Add_4"
+  input: "LayerNorm_4/moments/mean"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/moments/variance"
+  op: "Mean"
+  input: "LayerNorm_4/moments/SquaredDifference"
+  input: "LayerNorm/moments/mean/reduction_indices"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "Tidx"
+    value {
+      type: DT_INT32
+    }
+  }
+  attr {
+    key: "keep_dims"
+    value {
+      b: true
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/add"
+  op: "Add"
+  input: "LayerNorm_4/moments/variance"
+  input: "LayerNorm/batchnorm/add/y"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/Rsqrt"
+  op: "Rsqrt"
+  input: "LayerNorm_4/batchnorm/add"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/gamma"
+  op: "VariableV2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_4/gamma"
+      }
+    }
+  }
+  attr {
+    key: "container"
+    value {
+      s: ""
+    }
+  }
+  attr {
+    key: "dtype"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "shape"
+    value {
+      shape {
+        dim {
+          size: 300
+        }
+      }
+    }
+  }
+  attr {
+    key: "shared_name"
+    value {
+      s: ""
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/gamma/read"
+  op: "Identity"
+  input: "LayerNorm_4/gamma"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "_class"
+    value {
+      list {
+        s: "loc:@LayerNorm_4/gamma"
+      }
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/mul"
+  op: "Mul"
+  input: "LayerNorm_4/batchnorm/Rsqrt"
+  input: "LayerNorm_4/gamma/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/mul_1"
+  op: "Mul"
+  input: "Add_4"
+  input: "LayerNorm_4/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/mul_2"
+  op: "Mul"
+  input: "LayerNorm_4/moments/mean"
+  input: "LayerNorm_4/batchnorm/mul"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/sub"
+  op: "Sub"
+  input: "LayerNorm_4/beta/read"
+  input: "LayerNorm_4/batchnorm/mul_2"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "LayerNorm_4/batchnorm/add_1"
+  op: "Add"
+  input: "LayerNorm_4/batchnorm/mul_1"
+  input: "LayerNorm_4/batchnorm/sub"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu_4"
+  op: "Relu"
+  input: "LayerNorm_4/batchnorm/add_1"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "MatMul_5"
+  op: "MatMul"
+  input: "Relu_4"
+  input: "Weight_6/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "transpose_a"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "transpose_b"
+    value {
+      b: false
+    }
+  }
+}
+node {
+  name: "Add_5"
+  op: "Add"
+  input: "MatMul_5"
+  input: "Bias_6/read"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu_5"
+  op: "Relu"
+  input: "Add_5"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "Relu_5/_46"
+  op: "_Send"
+  input: "Relu_5"
+  device: "/job:localhost/replica:0/task:0/device:GPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "client_terminated"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "recv_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:CPU:0"
+    }
+  }
+  attr {
+    key: "send_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:GPU:0"
+    }
+  }
+  attr {
+    key: "send_device_incarnation"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "tensor_name"
+    value {
+      s: "edge_175_Relu_5"
+    }
+  }
+}
+library {
+}
+versions {
+  producer: 24
+}
+, node {
+  name: "Relu_5/_47"
+  op: "_Recv"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "client_terminated"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "recv_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:CPU:0"
+    }
+  }
+  attr {
+    key: "send_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:GPU:0"
+    }
+  }
+  attr {
+    key: "send_device_incarnation"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "tensor_name"
+    value {
+      s: "edge_175_Relu_5"
+    }
+  }
+  attr {
+    key: "tensor_type"
+    value {
+      type: DT_FLOAT
+    }
+  }
+}
+node {
+  name: "_retval_Relu_5_0_0"
+  op: "_Retval"
+  input: "Relu_5/_47"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "index"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "_arg_x_input_0_0"
+  op: "_Arg"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "index"
+    value {
+      i: 0
+    }
+  }
+}
+node {
+  name: "_arg_x_input_0_0/_44"
+  op: "_Send"
+  input: "_arg_x_input_0_0"
+  device: "/job:localhost/replica:0/task:0/device:CPU:0"
+  attr {
+    key: "T"
+    value {
+      type: DT_FLOAT
+    }
+  }
+  attr {
+    key: "client_terminated"
+    value {
+      b: false
+    }
+  }
+  attr {
+    key: "recv_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:GPU:0"
+    }
+  }
+  attr {
+    key: "send_device"
+    value {
+      s: "/job:localhost/replica:0/task:0/device:CPU:0"
+    }
+  }
+  attr {
+    key: "send_device_incarnation"
+    value {
+      i: 1
+    }
+  }
+  attr {
+    key: "tensor_name"
+    value {
+      s: "edge_174__arg_x_input_0_0"
+    }
+  }
+}
+library {
+}
+versions {
+  producer: 24
+}
+]
+NACA4_UI_v2_65:579 - Design time: 2867.2295 mili sec, 2.8672 sec
+NACA4_UI_v2_65:587 - Re_Analysis time: 0.0000 mili sec, 0.0000 sec
+NACA4_UI_v2_65:589 - Run time: 3075.2759 mili sec, 3.0753 sec

@@ -6,9 +6,9 @@
 $
 
 #1 Xfoil setting #
-No_point:	400
+No_point:	100
 Iter:	200
-Re:	1000000
-Mach:	0.1
+Re:	3000000
+Mach:	0.2
 timelim:	30
 $

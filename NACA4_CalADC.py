@@ -154,10 +154,10 @@ def run(no_proc):
             ref_P.sort()
         
         Chara=np.zeros([1,5])
-        Chara[0][0]=-1*mat[ref_P[0],0]*((mat[ref_P[1],1]-mat[ref_P[1],1]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],1]
+        Chara[0][0]=-1*mat[ref_P[0],0]*((mat[ref_P[1],1]-mat[ref_P[0],1]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],1]
         Chara[0][1]=(mat[ref_P[1],1]-mat[ref_P[0],1])/(mat[ref_P[1],0]-mat[ref_P[0],0])
-        Chara[0][2]=-1*mat[ref_P[0],0]*((mat[ref_P[1],2]-mat[ref_P[1],2]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],2]
-        Chara[0][3]=-1*mat[ref_P[0],0]*((mat[ref_P[1],4]-mat[ref_P[1],4]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],4]
+        Chara[0][2]=-1*mat[ref_P[0],0]*((mat[ref_P[1],2]-mat[ref_P[0],2]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],2]
+        Chara[0][3]=-1*mat[ref_P[0],0]*((mat[ref_P[1],4]-mat[ref_P[0],4]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],4]
         Chara[0][4]=(mat[ref_P[1],4]-mat[ref_P[0],4])/(mat[ref_P[1],0]-mat[ref_P[0],0])
     
     else:
@@ -283,10 +283,10 @@ def run_Restore():
             ref_P.sort()
         
         Chara=np.zeros([1,5])
-        Chara[0][0]=-1*mat[ref_P[0],0]*((mat[ref_P[1],1]-mat[ref_P[1],1]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],1]
+        Chara[0][0]=-1*mat[ref_P[0],0]*((mat[ref_P[1],1]-mat[ref_P[0],1]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],1]
         Chara[0][1]=(mat[ref_P[1],1]-mat[ref_P[0],1])/(mat[ref_P[1],0]-mat[ref_P[0],0])
-        Chara[0][2]=-1*mat[ref_P[0],0]*((mat[ref_P[1],2]-mat[ref_P[1],2]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],2]
-        Chara[0][3]=-1*mat[ref_P[0],0]*((mat[ref_P[1],4]-mat[ref_P[1],4]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],4]
+        Chara[0][2]=-1*mat[ref_P[0],0]*((mat[ref_P[1],2]-mat[ref_P[0],2]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],2]
+        Chara[0][3]=-1*mat[ref_P[0],0]*((mat[ref_P[1],4]-mat[ref_P[0],4]))/(mat[ref_P[1],0]-mat[ref_P[0],0])+mat[ref_P[0],4]
         Chara[0][4]=(mat[ref_P[1],4]-mat[ref_P[0],4])/(mat[ref_P[1],0]-mat[ref_P[0],0])
     
     else:

@@ -240,11 +240,12 @@ class N4_FCNN_Load():
             self.sess = tf.Session(config = tf.ConfigProto(device_count={'CPU':1, 'GPU':0}, log_device_placement=True))
             saver.restore(self.sess,'./saved/model'+str(self.No_model))
             ## Active the code below, if you want to see the device log ##
-            options = tf.RunOptions(output_partition_graphs=True)
-            metadata = tf.RunMetadata()
-            y = self.sess.run(self.logits,feed_dict={self.X: Nx}, options=options, run_metadata=metadata)
-            msg.debuginfo(str(metadata.partition_graphs))
-#            y = self.sess.run(self.logits,feed_dict={self.X: Nx})
+#            options = tf.RunOptions(output_partition_graphs=True)
+#            metadata = tf.RunMetadata()
+#            y = self.sess.run(self.logits,feed_dict={self.X: Nx}, options=options, run_metadata=metadata)
+#            msg.debuginfo(str(metadata.partition_graphs))
+            ## If you don't want to see the log, activate below ##            
+            y = self.sess.run(self.logits,feed_dict={self.X: Nx})
            
         elif Proc == 'GPU':
             with tf.device('/device:GPU:0'):
@@ -257,21 +258,23 @@ class N4_FCNN_Load():
             self.sess = tf.Session(config = tf.ConfigProto(log_device_placement=True))
             saver.restore(self.sess,'./saved/model'+str(self.No_model))
             ## Active the code below, if you want to see the device log ##
-            options = tf.RunOptions(output_partition_graphs=True)
-            metadata = tf.RunMetadata()
-            y = self.sess.run(self.logits,feed_dict={self.X: Nx}, options=options, run_metadata=metadata)
-            msg.debuginfo(str(metadata.partition_graphs))
-#            y = self.sess.run(self.logits,feed_dict={self.X: Nx})
+#            options = tf.RunOptions(output_partition_graphs=True)
+#            metadata = tf.RunMetadata()
+#            y = self.sess.run(self.logits,feed_dict={self.X: Nx}, options=options, run_metadata=metadata)
+#            msg.debuginfo(str(metadata.partition_graphs))
+            ## If you don't want to see the log, activate below ##
+            y = self.sess.run(self.logits,feed_dict={self.X: Nx})
 #            print(y)
 #        print('init ANN')
         return y
     
     def Run_ANN(self, x):  
-        time_start = time.time()              
+        ## If you want to check the time for prediction, Activate below 3 lines ##
+#        time_start = time.time()              
         Nx = np.expand_dims(self.Normalize(x,1),axis=0)
         y = self.sess.run(self.logits,feed_dict={self.X: Nx})
-        time_predict = time.time() - time_start
-        print('Prediction time: {}'.format(time_predict))
+#        time_predict = time.time() - time_start
+#        print('Prediction time: {}'.format(time_predict))
         
         return y
 
@@ -281,7 +284,7 @@ if __name__ == "__main__":
 
     time_start = time.time()
     x = np.array([0.24270,   0.10440,   0.00570,  -0.05200,  0.00220])
-    y = ANN.init_Run_ANN(x,'CPU')
+    y = ANN.init_Run_ANN(x,'GPU')
     
     time_predict = time.time() - time_start
     print(time_predict)

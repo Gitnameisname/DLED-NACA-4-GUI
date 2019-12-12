@@ -8,7 +8,7 @@ $
 #1 Training info #
 Start_loop:	20
 Max_loop:	20
-Max_epoach:	200000
+Max_epoach:	100000
 mini_batch_size:	5000
 Initial_DB:	0
 re_Analysis:	1
@@ -21,7 +21,7 @@ No_Neuron:	300
 No_input:	5
 No_output:	3
 
-Learning_rate:	0.01
+Learning_rate:	0.001
 Activation:		ReLU
 Float_Precision:	FP32
 $

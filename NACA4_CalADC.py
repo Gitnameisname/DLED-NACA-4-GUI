@@ -15,6 +15,7 @@ Cl0, Cla_0, Cd0, Cm0, Cma_0
 import numpy as np
 import os
 import sys
+import time
 
 direct_work=os.getcwd()
 # Find Code Directory
@@ -173,6 +174,16 @@ def run_Restore():
     # Open file with 'r' - Read only
     name_aero = 'Predicted NACA Aero.txt'
     direct_file = os.path.join(direct_RR, name_aero)
+#    wait = 0
+#    
+#    # Wait until Xfoil run over
+#    while wait == 0:
+#        if not os.path.isfile(direct_file):
+#            time.sleep(1)
+#        else:
+#            print('process'+str(no_proc)+': data file found')
+##            time.sleep(0.1)
+#            wait = 1
         
     f=open(direct_file,'r')
     i=0
@@ -293,6 +304,3 @@ def run_Restore():
         Chara=np.array([])
   
     return Chara
-
-if __name__ =="__main__":
-    test = run_Restore()
